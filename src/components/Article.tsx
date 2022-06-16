@@ -1,14 +1,14 @@
-import { connect, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import React from 'react'
 import { useEffect } from 'react'
 import avatar from '../assets/back.jpg'
-import { getChannels } from '../utils/index';
+// import { getChannels } from '../utils/index';
 function Article() {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     useEffect(() => {
     (async()=>{
-        const {data} = await getChannels()
-        dispatch(data)
+        // const {data} = await getChannels()
+        // dispatch({type: 'add',data})
     })()
       
     },[])

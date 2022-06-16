@@ -1,6 +1,11 @@
 import React from 'react'
-
-export default function Channel() {
+import { useEffect } from 'react';
+import { getChannels } from '@/store/actions/Channel';
+import { connect } from 'react-redux';
+function Channel(props: any) {
+    useEffect(()=>{
+        props.getChannels()
+    },[])
     return (
         <ul className='catagtory'>
             <li className='select'>开发者资讯</li>
@@ -33,3 +38,8 @@ export default function Channel() {
         </ul>
     )
 }
+const mapStateToProps = (state:any) =>  state
+const mapDispatchToProps = {
+    getChannels
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Channel)

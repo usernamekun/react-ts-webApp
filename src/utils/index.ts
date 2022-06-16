@@ -9,4 +9,4 @@ import requests from "./request";
 //   url: 'channels', method: 'get'
 // })
 // 或者
-export const getChannels = () => requests.get('channels')
+export const getChannelsList = () => requests.get('channels')

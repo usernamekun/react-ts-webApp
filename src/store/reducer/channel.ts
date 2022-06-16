@@ -1,4 +1,12 @@
-
-export default function channelReducer(preState = {b:2}){
-  return preState
+import { ChannelAction } from "@/types/store"
+export default function channelReducer(preState = {},action: ChannelAction){
+  const {type,payload} = action
+  switch(type){
+    case 'CHANGE_SAVE':
+      console.log(payload)
+      return {...preState, channels: payload}
+    default:
+      return preState
+  }
+  
 } 
