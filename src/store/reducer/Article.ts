@@ -1,7 +1,19 @@
+import { ArticleAction } from '../../types/store';
+import { ArticleItem } from '../../types/data';
 
-export default function acticleReducer(preState={a:1},action: any){
-  // const {data} = action
-  // console.log(data);
-    
-  return preState
+interface IState {
+  results: ArticleItem[]
+}
+const initState: IState = {
+  results: []
+}
+export default function acticleReducer(preState=initState,action: ArticleAction): IState{
+    switch(action.type){
+      case 'ARTICLE_SAVE':
+        return {
+          ...preState, results: action.payload
+        }
+      default:
+        return preState
+    }
 }

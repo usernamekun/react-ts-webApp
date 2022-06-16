@@ -1,17 +1,15 @@
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux';
 import React from 'react'
 import { useEffect } from 'react'
 import avatar from '../assets/back.jpg'
-// import { getChannels } from '../utils/index';
+import { getArticle } from '../store/actions/Article';
+import { RootState } from '../types/store';
 function Article() {
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
+    const {active} = useSelector((state:RootState)=>state.channelReducer)
     useEffect(() => {
-    (async()=>{
-        // const {data} = await getChannels()
-        // dispatch({type: 'add',data})
-    })()
-      
-    },[])
+        dispatch(getArticle(active,Date.now()))
+    },[dispatch,active])
     return (
         <div className='list'>
             <div className='article_item'>

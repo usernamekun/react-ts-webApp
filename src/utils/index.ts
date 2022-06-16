@@ -10,3 +10,4 @@ import requests from "./request";
 // })
 // 或者
 export const getChannelsList = () => requests.get('channels')
+export const getArticleList = (id:number, time: number) => requests.get(`articles?channel_id=${id}&timestamp=${time}`)

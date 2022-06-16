@@ -10,10 +10,9 @@ const initState: IState = {
   active: 0
 }
 export default function channelReducer(preState = initState,action: ChannelAction): IState{
-  // const {type,payload,id} = action
   switch(action.type){
     case 'CHANGE_SAVE':
-      return {...preState, channels: action.payload}
+      return {...preState, channels: action.payload, active: action.payload[0].id}
     case 'CHANGE_ACTIVE':
       return {
         ...preState,active:action.id
