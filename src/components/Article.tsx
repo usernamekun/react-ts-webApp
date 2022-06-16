@@ -1,7 +1,17 @@
-import { connect } from 'http2'
+import { connect, useDispatch } from 'react-redux'
 import React from 'react'
+import { useEffect } from 'react'
 import avatar from '../assets/back.jpg'
-export default function Article() {
+import { getChannels } from '../utils/index';
+function Article() {
+    const dispatch = useDispatch()
+    useEffect(() => {
+    (async()=>{
+        const {data} = await getChannels()
+        dispatch(data)
+    })()
+      
+    },[])
     return (
         <div className='list'>
             <div className='article_item'>
@@ -18,10 +28,11 @@ export default function Article() {
         </div>
     )
 }
-const mapStateToProps = {
+// articleReducer
+const mapStateToProps =  (state: any) => ({a: state.articleReducer.a})
 
-}
+
 const mapDispatchToProps = {
 
 }
-// export default connect(mapStateToProps,mapDispatchToProps)(Article)
+export default connect(mapStateToProps, mapDispatchToProps)(Article)

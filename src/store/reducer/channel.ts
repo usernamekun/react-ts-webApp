@@ -1,4 +1,4 @@
 
-export default function channelReducer(): void{
-
-}
+export default function channelReducer(preState = {b:2}){
+  return preState
+} 
