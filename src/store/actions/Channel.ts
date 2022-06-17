@@ -2,10 +2,10 @@ import { getChannelsList } from '../../utils/index';
 import { RootThunkAction, ChannelAction } from '../../types/store';
 export const getChannels = (): RootThunkAction => {
   return async (dispatch) => {
-    const {data:{channels}} = await getChannelsList()
+    const res = await getChannelsList()
     dispatch({
       type: 'CHANGE_SAVE',
-      payload: channels
+      payload: res.data.channels
     })
   }
 }
